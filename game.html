@@ -12,16 +12,33 @@
             let randNum = Math.floor(Math.random()*3);
             console.log(randNum)
             if(randNum==0) {
-                console.log("Rock");
+                return("Rock");
             }
-            if(randNum==1) {
-                console.log("paper");
+            else if(randNum==1) {
+                return("paper");
             }
-            if(randNum==2) {
-                console.log("scissors");
+            else{
+                return "scissors";
             }
+           
         }
-        computerPlay();
+       
+           
+            let computerChoice = computerPlay();
+            // console.log(computerChoice);
+            let playerChoice = "rock";
+            function singleRound (playerChoice,computerChoice){
+                if (playerChoice == computerChoice){
+                    return "tie";
+                }
+                else{
+                    return "haven't finished coding yet";
+
+                }
+            let singleRoundResult= singleRound(playerChoice,computerChoice)
+            console.log(singleRoundResult);
+          
+        
     </script>
 </body>
 </html>
