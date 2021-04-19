@@ -10,33 +10,77 @@
     <script>
         function computerPlay(){
             let randNum = Math.floor(Math.random()*3);
-            console.log(randNum)
+            
             if(randNum==0) {
-                return("Rock");
+                return("ROCK");
             }
             else if(randNum==1) {
-                return("paper");
+                return("PAPER");
             }
             else{
-                return "scissors";
+                return "SCISSORS";
             }
            
         }
        
            
-            let computerChoice = computerPlay();
-            // console.log(computerChoice);
-            let playerChoice = "rock";
+        let score = 0;
+            
             function singleRound (playerChoice,computerChoice){
                 if (playerChoice == computerChoice){
-                    return "tie";
-                }
-                else{
-                    return "haven't finished coding yet";
+                    return `Results: TIE  ${playerChoice} vs ${computerChoice}  Score: ${score}`;
+                }else if(playerChoice == "ROCK" && computerChoice == "PAPER"){
+                    return `Results: LOSS  ${playerChoice} vs ${computerChoice}  Score: ${score -= 500}`;
+                }else if(playerChoice == "ROCK" && computerChoice == "SCISSORS"){
+                    return `Results: WIN  ${playerChoice} vs ${computerChoice}  Score: ${score += 500}`;
+                }else if(playerChoice == "PAPER" && computerChoice == "SCISSORS"){
+                    return `Results: LOSS  ${playerChoice} vs ${computerChoice}  Score: ${score -= 500}`;
+                }else if(playerChoice == "PAPER" && computerChoice == "ROCK"){
+                    return `Results: WIN  ${playerChoice} vs ${computerChoice}  Score: ${score += 500}`;
+                }else if(playerChoice == "SCISSOR" && computerChoice == "PAPER"){
+                    return `Results: WIN  ${playerChoice} vs ${computerChoice}  Score: ${score += 500}`;
+                }else if(playerChoice == "SCISSORS" && computerChoice == "ROCK"){
+                    return `Results: LOSS  ${playerChoice} vs ${computerChoice}  Score: ${score -= 500}`;
+                }else{
+                    return "ERROR";
 
                 }
-            let singleRoundResult= singleRound(playerChoice,computerChoice)
-            console.log(singleRoundResult);
+            }
+
+            function gamePlay(){
+                console.log("Round 1 Begin")
+                let computerChoice = computerPlay();
+                let playerChoice = prompt(" Choose rock paper or scissors").toUpperCase();
+                let singleRoundResult = singleRound(playerChoice,computerChoice)
+                console.log(singleRoundResult);
+
+                console.log("Round 2 Begin")
+                computerChoice = computerPlay();
+                playerChoice = prompt(" Choose rock paper or scissors").toUpperCase();
+                singleRoundResult = singleRound(playerChoice,computerChoice)
+                console.log(singleRoundResult);
+
+                console.log("Round 3 Begin")
+                computerChoice = computerPlay();
+                playerChoice = prompt(" Choose rock paper or scissors").toUpperCase();
+                singleRoundResult = singleRound(playerChoice,computerChoice)
+                console.log(singleRoundResult);
+
+                console.log("Round 4 Begin")
+                computerChoice = computerPlay();
+                playerChoice = prompt(" Choose rock paper or scissors").toUpperCase();
+                singleRoundResult = singleRound(playerChoice,computerChoice)
+                console.log(singleRoundResult);
+
+                console.log("Round 5 Begin")
+                computerChoice = computerPlay();
+                playerChoice = prompt(" Choose rock paper or scissors").toUpperCase();
+                singleRoundResult = singleRound(playerChoice,computerChoice)
+                console.log(singleRoundResult);
+
+                console.log(`Final Score ${score}`);
+            }
+            gamePlay(); 
           
         
     </script>
